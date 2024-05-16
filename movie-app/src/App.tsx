@@ -1,28 +1,38 @@
 import React, { Suspense, lazy } from 'react';
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Index from './pages/user';
-import TrangChu from './pages/user/trang-chu/TrangChu';
-import TrangChiTietPhim from './pages/user/trang-chu/trang-chi-tiet-phim/TrangChiTietPhim';
-import DangKy from './pages/user/dang-ky/DangKy';
-import DangNhap from './pages/user/dang-nhap/DangNhap';
+import IndexAdmin from './pages/admin';
+import IndexHome from './pages/user';
+import Home from './pages/user/home/Home';
+import ListMovie from './pages/user/home/list-movie/ListMovie';
+import DetailMovie from './pages/user/home/detail-movie/DetailMovie';
+import Auth from './pages/user/auth/Auth';
+import Login from './pages/user/auth/login/Login';
+import Register from './pages/user/auth/register/Register';
 
-const TrangDatVeLazy = lazy(() => import('./pages/user/trang-dat-ve/TrangDatVe'))
+const BookTicketLazy = lazy(() => import('./pages/user/book-tickets/BookTickets'))
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Index />}>
+        <Route path='/' element={<IndexHome />}>
 
-          <Route path='/' element={<TrangChu />}>
-            <Route path='/chi-tiet-phim' element={<TrangChiTietPhim />} />
+          <Route path='/' element={<Home />}>
+            <Route path='list-movie' element={<ListMovie />} />
+            <Route path='detail-movie' element={<DetailMovie />} />
           </Route>
 
-          <Route path='/dat-ve/:id' element={<Suspense fallback={<p>Loading...</p>}><TrangDatVeLazy /></Suspense>} />
-          <Route path='/dang-ky' element={<DangKy />} />
-          <Route path='/dang-nhap' element={<DangNhap />} />
+          <Route path='/auth' element={<Auth />}>
+            <Route path='login' element={<Login />} />
+            <Route path='register' element={<Register />} />
+          </Route>
 
+          <Route path='/book-ticket/:id' element={<Suspense fallback={<p>Loading...</p>}><BookTicketLazy /></Suspense>} />
+
+        </Route>
+        <Route path='/admin' element={<IndexAdmin />}>
+          <Route path='' element={<IndexAdmin />} />
         </Route>
       </Routes>
     </BrowserRouter>

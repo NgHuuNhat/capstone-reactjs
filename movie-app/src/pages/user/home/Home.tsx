@@ -3,7 +3,7 @@ import Header from '../_components/header/Header';
 import Footer from '../_components/footer/Footer';
 import { Outlet } from 'react-router-dom';
 
-export default function TrangChu() {
+export default function Home() {
   return (
     <div>
       <Header />

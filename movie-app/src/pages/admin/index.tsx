@@ -1,7 +1,7 @@
 import React from 'react'
 
-export default function Index() {
+export default function IndexAdmin() {
     return (
-        <div>Index</div>
+        <div>IndexAdmin</div>
     )
 }
