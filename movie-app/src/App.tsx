@@ -22,9 +22,9 @@ function App() {
             <Route path='detail-movie' element={<DetailMovie />} />
           </Route>
 
-          <Route path='/auth' element={<Auth />}>
-            <Route path='login' element={<Login />} />
-            <Route path='register' element={<Register />} />
+          <Route>
+            <Route path='/login' element={<Login />} />
+            <Route path='/register' element={<Register />} />
           </Route>
 
           <Route path='/book-ticket/:id' element={<BookTickets />} />
