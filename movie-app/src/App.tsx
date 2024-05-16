@@ -9,8 +9,7 @@ import DetailMovie from './pages/user/home/detail-movie/DetailMovie';
 import Auth from './pages/user/auth/Auth';
 import Login from './pages/user/auth/login/Login';
 import Register from './pages/user/auth/register/Register';
-
-const BookTicketLazy = lazy(() => import('./pages/user/book-tickets/BookTickets'))
+import BookTickets from './pages/user/book-tickets/BookTickets';
 
 function App() {
   return (
@@ -28,7 +27,7 @@ function App() {
             <Route path='register' element={<Register />} />
           </Route>
 
-          <Route path='/book-ticket/:id' element={<Suspense fallback={<p>Loading...</p>}><BookTicketLazy /></Suspense>} />
+          <Route path='/book-ticket/:id' element={<BookTickets />} />
 
         </Route>
         <Route path='/admin' element={<IndexAdmin />}>
