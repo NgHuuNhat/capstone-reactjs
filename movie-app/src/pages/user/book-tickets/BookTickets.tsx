@@ -11,6 +11,6 @@ export default function BookTickets() {
   // }, []);
 
   return (
-    <div>BookTickets</div>
+    <div>BookTickets Nhat</div>
   )
 }
