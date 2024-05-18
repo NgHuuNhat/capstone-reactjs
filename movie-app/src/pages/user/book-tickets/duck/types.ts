@@ -3,6 +3,7 @@ export interface StateType {
     data: any; 
     error: any; 
     danhSachGheDangChon: any[];
+    thongTinNguoiDung: {},
 }
 
 export type ThongTinDatVe = {

@@ -6,6 +6,7 @@ const initialState: StateType = {
     data: null,
     error: null,
     danhSachGheDangChon: [],
+    thongTinNguoiDung: {},
 }
 
 const bookTicketReducer = (state = initialState, action: any) => {
@@ -43,6 +44,11 @@ const bookTicketReducer = (state = initialState, action: any) => {
 
                 return { ...state, danhSachGheDangChon: cloneDanhSachGheDangChon };
         }
+
+        // case ActionType.SET_THONG_TIN_NGUOI_DUNG: {
+        //     state.thongTinNguoiDung = action.thongTinNguoiDung;
+        //     return { ...state };
+        // }
 
         default:
             return { ...state };
