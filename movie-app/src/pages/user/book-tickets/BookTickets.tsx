@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { actFetchBookTicket } from './duck/action';
-import dayjs from 'dayjs';
+import { actFetchBookTicket, actBookTicket } from './duck/action';
 import { DAT_GHE } from './duck/constants';
+import { ThongTinDatVe } from './duck/types';
 
 export default function BookTickets() {
   // useEffect(() => {
@@ -28,15 +28,15 @@ export default function BookTickets() {
   }, [id]);
 
   const { thongTinPhim, danhSachGhe } = data || "";
-  console.log("thongTinPhim", thongTinPhim)
+  console.log("thongTinPhim", thongTinPhim)//maGhe, giaVe
   console.log("danhSachGhe", danhSachGhe)
+  console.log("danhSachGheDangChon", danhSachGheDangChon) //maLichChieu
 
   const renderDanhSachGhe = () => {
     return danhSachGhe?.map((ghe: any, index: any) => {
       let classGheVip = ghe.loaiGhe === 'Vip' ? 'gheVip' : '';
       let classGheDaDat = ghe.daDat === true ? 'gheDaDat' : '';
       let classGheDangDat = '';
-
       let indexGheDangChon = danhSachGheDangChon.findIndex((item: any) => item.maGhe === ghe.maGhe);
       if (indexGheDangChon != -1) { classGheDangDat = 'gheDangDat' }
 
@@ -54,10 +54,19 @@ export default function BookTickets() {
     });
   }
 
+  const handleDatVe = () => {
+    const thongTinDatVe: ThongTinDatVe = {
+      maLichChieu: thongTinPhim.maLichChieu,
+      danhSachVe: danhSachGheDangChon,
+    };
+    console.log("thongTinDatVe===", thongTinDatVe); // Hiển thị thông tin đặt vé trong console
+    dispatch(actBookTicket(thongTinDatVe)); // Dispatch action để gửi dữ liệu đặt vé
+    // Thực hiện các hành động khác sau khi gửi dữ liệu thành công
+  };
+
   return (
     <div className=''>
       <div className='grid grid-cols-12 min-h-screen'>
-
         <div className='p-3 bg-light col-span-9'>
           <h5 className='py-1'>Đặt vé xem phim</h5>
           <hr />
@@ -66,9 +75,10 @@ export default function BookTickets() {
             <div className='trapezoid'></div>
             <p className='mt-n4'>Màn hình</p>
           </div>
-
-          <div className='w-75 mx-auto text-center border mt-2'>{renderDanhSachGhe()}</div>
-
+          <div className='w-75 mx-auto text-center border mt-2'>
+            {loading ? <div>loading...</div> : null}
+            {renderDanhSachGhe()}
+          </div>
           <div className='w-75 mx-auto d-flex mt-3'>
             <div className='d-flex mx-auto'>
               <div className='mx-3 d-flex align-items-center'>
@@ -88,11 +98,8 @@ export default function BookTickets() {
                 <p className='m-0'>Ghế đang chọn</p>
               </div>
             </div>
-
           </div>
-
         </div>
-
         <div className='p-3 border-left bg-light col-span-3 d-flex flex-column justify-content-between'>
           <div>
             <h5 className='text-center py-1'>{thongTinPhim?.tenPhim}</h5>
@@ -143,10 +150,9 @@ export default function BookTickets() {
             </div>
           </div>
           <div className=''>
-            <button className='w-100 p-3 border bg-dark text-light'>ĐẶT VÉ</button>
+            <button className='w-100 p-3 border bg-dark text-light' onClick={handleDatVe}>ĐẶT VÉ</button>
           </div>
         </div>
-
       </div>
     </div>
   )

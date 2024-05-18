@@ -1,17 +1,11 @@
 import * as ActionType from "./constants"
+import { StateType } from "./types";
 
 const initialState: StateType = {
     loading: false,
     data: null,
     error: null,
     danhSachGheDangChon: [],
-}
-
-interface StateType {
-    loading: boolean;
-    data: any; // Hoặc kiểu dữ liệu cụ thể
-    error: any; // Hoặc kiểu dữ liệu cụ thể
-    danhSachGheDangChon: any[]; // Hoặc kiểu dữ liệu cụ thể
 }
 
 const bookTicketReducer = (state = initialState, action: any) => {
