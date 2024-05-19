@@ -7,6 +7,7 @@ const initialState: StateType = {
     error: null,
     danhSachGheDangChon: [],
     thongTinNguoiDung: {},
+    // showAlert: false,
 }
 
 const bookTicketReducer = (state = initialState, action: any) => {
@@ -36,19 +37,26 @@ const bookTicketReducer = (state = initialState, action: any) => {
             console.log("action", action)
             let cloneDanhSachGheDangChon = [...state.danhSachGheDangChon];
             let index = cloneDanhSachGheDangChon.findIndex((item: any) => item.maGhe === action.gheDangChon.maGhe);
-            if (index != -1){
+            if (index != -1) {
                 cloneDanhSachGheDangChon.splice(index, 1);
             } else {
                 cloneDanhSachGheDangChon.push(action.gheDangChon);
             }
 
-                return { ...state, danhSachGheDangChon: cloneDanhSachGheDangChon };
+            return { ...state, danhSachGheDangChon: cloneDanhSachGheDangChon };
         }
 
-        // case ActionType.SET_THONG_TIN_NGUOI_DUNG: {
-        //     state.thongTinNguoiDung = action.thongTinNguoiDung;
-        //     return { ...state };
-        // }
+        case ActionType.SET_THONG_TIN_NGUOI_DUNG: {
+            console.log("action", action)
+            state.thongTinNguoiDung = action.payload
+            return { ...state };
+        }
+
+        // case ActionType.CLOSE_ALERT:
+        //     return {
+        //         ...state,
+        //         showAlert: false // Đặt trạng thái của cửa sổ alert thành false để đóng cửa sổ
+        //     };
 
         default:
             return { ...state };

@@ -37,21 +37,21 @@ code {
   margin: 5px;
 }
 
-.gheDangDat {
-  background-color: lightgreen;
-  width: 30px;
-  height: 30px;
-  border: 1px solid;
-  cursor: pointer;
-  margin: 5px;
-}
-
 .gheDaDat {
   background-color: red !important;
   width: 30px;
   height: 30px;
   border: 1px solid;
   cursor: no-drop !important;
+  margin: 5px;
+}
+
+.gheDangDat {
+  background-color: lightgreen !important;
+  width: 30px;
+  height: 30px;
+  border: 1px solid;
+  cursor: pointer;
   margin: 5px;
 }
 
@@ -87,4 +87,13 @@ a {
   background-color: #fff !important;
   border-color: #fff #fff #343a40 !important;
   border-bottom: 3px solid !important;
+}
+
+#alert {
+  position: fixed;
+  width: 25%;
+}
+
+.alert {
+  margin-bottom: 0 !important;
 }
