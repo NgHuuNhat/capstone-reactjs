@@ -4,7 +4,6 @@ export interface StateType {
     error: any; 
     danhSachGheDangChon: any[];
     thongTinNguoiDung: {},
-    // showAlert: boolean,
 }
 
 export type ThongTinDatVe = {

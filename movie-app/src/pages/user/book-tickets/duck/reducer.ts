@@ -7,7 +7,6 @@ const initialState: StateType = {
     error: null,
     danhSachGheDangChon: [],
     thongTinNguoiDung: {},
-    // showAlert: false,
 }
 
 const bookTicketReducer = (state = initialState, action: any) => {
@@ -42,21 +41,14 @@ const bookTicketReducer = (state = initialState, action: any) => {
             } else {
                 cloneDanhSachGheDangChon.push(action.gheDangChon);
             }
-
             return { ...state, danhSachGheDangChon: cloneDanhSachGheDangChon };
         }
 
-        case ActionType.SET_THONG_TIN_NGUOI_DUNG: {
+        case ActionType.THONG_TIN_NGUOI_DUNG: {
             console.log("action", action)
             state.thongTinNguoiDung = action.payload
             return { ...state };
         }
-
-        // case ActionType.CLOSE_ALERT:
-        //     return {
-        //         ...state,
-        //         showAlert: false // Đặt trạng thái của cửa sổ alert thành false để đóng cửa sổ
-        //     };
 
         default:
             return { ...state };

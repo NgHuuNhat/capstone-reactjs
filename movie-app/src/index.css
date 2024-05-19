@@ -88,12 +88,3 @@ a {
   border-color: #fff #fff #343a40 !important;
   border-bottom: 3px solid !important;
 }
-
-#alert {
-  position: fixed;
-  width: 25%;
-}
-
-.alert {
-  margin-bottom: 0 !important;
-}

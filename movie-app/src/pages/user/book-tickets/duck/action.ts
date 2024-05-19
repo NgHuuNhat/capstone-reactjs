@@ -2,7 +2,7 @@ import * as ActionType from "./constants";
 import api from "../../../../utils/apiUtil";
 import { ThongTinDatVe } from "./types";
 
-export const actFetchBookTicket = (id: any) => {
+export const actGetListPhongVe = (id: any) => {
     return (dispatch: any) => {
         //loading
         dispatch(actReques());
@@ -22,7 +22,7 @@ export const actFetchBookTicket = (id: any) => {
     }
 }
 
-export const actBookTicket = (thongTinDatVe: ThongTinDatVe) => {
+export const actGetListBookTicket = (thongTinDatVe: ThongTinDatVe) => {
     return (dispatch: any) => {
         dispatch(actReques());
 
@@ -32,10 +32,6 @@ export const actBookTicket = (thongTinDatVe: ThongTinDatVe) => {
                     console.log("Đặt vé thành công===", result.data.content);
                     dispatch(actSuccess(result.data.content));
                     resolve(result.data.content);
-                    // Đặt một timeout để tự động đóng alert sau 3 giây
-                    // setTimeout(() => {
-                    //     dispatch(actCloseAlert());
-                    // }, 100);
                 })
                 .catch((error) => {
                     console.log("Đặt vé thất bại!!!===", error);
@@ -46,7 +42,7 @@ export const actBookTicket = (thongTinDatVe: ThongTinDatVe) => {
     };
 };
 
-export const actLayThongTinNguoiDung = () => {
+export const actGetUserInfo = () => {
     return (dispatch: any) => {
         dispatch(actReques());
 
@@ -54,7 +50,7 @@ export const actLayThongTinNguoiDung = () => {
         api.post("/QuanLyNguoiDung/ThongTinTaiKhoan")
             .then((result) => {
                 console.log("Thông tin tài khoản===", result.data.content);
-                dispatch(actThongTinTaiKhoan(result.data.content));
+                dispatch(actUserInfo(result.data.content));
                 // resolve(result.data.content);
             })
             .catch((error) => {
@@ -66,7 +62,7 @@ export const actLayThongTinNguoiDung = () => {
     };
 };
 
-
+//
 export const actReques = () => {
     return {
         type: ActionType.REQUEST,
@@ -87,15 +83,9 @@ export const actFailed = (error: any) => {
     }
 }
 
-export const actThongTinTaiKhoan = (data: any) => {
+export const actUserInfo = (data: any) => {
     return {
-        type: ActionType.SET_THONG_TIN_NGUOI_DUNG,
+        type: ActionType.THONG_TIN_NGUOI_DUNG,
         payload: data,
     }
 }
-
-// export const actCloseAlert = () => {
-//     return {
-//         type: ActionType.CLOSE_ALERT,
-//     }
-// }
