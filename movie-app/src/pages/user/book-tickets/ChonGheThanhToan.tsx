@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { actGetListPhongVe, actGetListBookTicket } from './duck/action';
 import { DAT_GHE } from './duck/constants';
 import { ThongTinDatVe } from './duck/types';
-import dayjs from 'dayjs';
 import _ from 'lodash';
 import Alert from './Alert';
 
