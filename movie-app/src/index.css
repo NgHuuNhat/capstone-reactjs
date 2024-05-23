@@ -11,3 +11,80 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.trapezoid {
+  border-bottom: 40px solid #c9c9c91c;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  filter: drop-shadow(0px 10px 5px #222);
+}
+
+.ghe {
+  background-color: #fff;
+  width: 30px;
+  height: 30px;
+  border: 1px solid;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.gheVip {
+  background-color: yellow;
+  width: 30px;
+  height: 30px;
+  border: 1px solid;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.gheDaDat {
+  background-color: red !important;
+  width: 30px;
+  height: 30px;
+  border: 1px solid;
+  cursor: no-drop !important;
+  margin: 5px;
+}
+
+.gheDangDat {
+  background-color: lightgreen !important;
+  width: 30px;
+  height: 30px;
+  border: 1px solid;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.gheBanDat {
+  background-color: lightblue !important;
+  width: 30px;
+  height: 30px;
+  border: 1px solid;
+  cursor: no-drop !important;
+  margin: 5px;
+}
+
+
+
+.no-cursor {
+  cursor: default !important;
+}
+
+a {
+  color: #dee2e6 !important;
+}
+
+.nav-tabs .nav-link.active {
+  color: #495057 !important;
+  background-color: #fff !important;
+  border-color: #fff #fff #343a40 !important;
+  border-bottom: 3px solid !important;
+}
+
+.nav-link:hover {
+  isolation: isolate !important;
+  color: #495057 !important;
+  background-color: #fff !important;
+  border-color: #fff #fff #343a40 !important;
+  border-bottom: 3px solid !important;
+}

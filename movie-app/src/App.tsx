@@ -18,8 +18,8 @@ function App() {
         <Route path='/' element={<IndexHome />}>
 
           <Route path='/' element={<Home />}>
-            <Route path='list-movie' element={<ListMovie />} />
-            <Route path='detail-movie' element={<DetailMovie />} />
+            <Route path='/list-movie' element={<ListMovie />} />
+            <Route path='/detail-movie' element={<DetailMovie />} />
           </Route>
 
           <Route>
