@@ -132,7 +132,7 @@ export default function ChonGheThanhToan() {
         console.log("thongTinDatVe===", thongTinDatVe);
         dispatch(actGetListBookTicket(thongTinDatVe))
             .then(() => {
-                dispatch(actGetListPhongVe(id));
+                // dispatch(actGetListPhongVe(id));
                 setShowAlert(true);
             });
     };
@@ -148,8 +148,8 @@ export default function ChonGheThanhToan() {
                         <p className='mt-n4'>Màn hình</p>
                     </div>
                     <div className='w-75 mx-auto text-center border mt-2 p-1'>
-                        {loading ? <div className="spinner-border"></div> : null}
-                        {renderSeatButton(danhSachGhe)}
+                        {loading ? <div className="spinner-border"></div> : renderSeatButton(danhSachGhe)}
+                        {/* {renderSeatButton(danhSachGhe)} */}
                     </div>
                     <div className='w-75 mx-auto d-flex mt-3'>
                         <div className='d-flex mx-auto'>

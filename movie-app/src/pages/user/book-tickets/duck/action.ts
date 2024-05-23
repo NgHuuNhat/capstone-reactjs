@@ -23,14 +23,15 @@ export const actGetListPhongVe = (id: any) => {
 }
 
 export const actGetListBookTicket = (thongTinDatVe: ThongTinDatVe) => {
-    return (dispatch: any) => {
+    return async (dispatch: any) => { // Đánh dấu hàm này là async
         dispatch(actReques());
 
         return new Promise((resolve, reject) => {
             api.post("/QuanLyDatVe/DatVe", thongTinDatVe)
-                .then((result) => {
+                .then(async (result) => { // Đánh dấu hàm này là async
                     console.log("Đặt vé thành công===", result.data.content);
                     dispatch(actSuccess(result.data.content));
+                    await dispatch(actGetListPhongVe(thongTinDatVe.maLichChieu)); // Sử dụng await ở đây
                     resolve(result.data.content);
                 })
                 .catch((error) => {
@@ -41,6 +42,7 @@ export const actGetListBookTicket = (thongTinDatVe: ThongTinDatVe) => {
         });
     };
 };
+
 
 export const actGetUserInfo = () => {
     return (dispatch: any) => {
