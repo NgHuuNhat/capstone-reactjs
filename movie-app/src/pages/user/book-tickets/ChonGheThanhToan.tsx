@@ -101,7 +101,7 @@ function Info({ thongTinPhim, danhSachGheDangChon }: { thongTinPhim: any, danhSa
     );
 }
 
-export default function ChonGheThanhToan() {
+export default function ChonGheThanhToan({ onDatVeSuccess }: { onDatVeSuccess: () => void }) {
     // useEffect(() => {
     //   // Kiểm tra xem có thông tin người dùng trong localStorage không
     //   const user = localStorage.getItem('USER');
@@ -135,6 +135,7 @@ export default function ChonGheThanhToan() {
             .then(() => {
                 // dispatch(actGetListPhongVe(id));
                 setShowAlert(true);
+                onDatVeSuccess();
             });
     };
 
