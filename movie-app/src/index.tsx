@@ -6,6 +6,7 @@ import "jquery/dist/jquery.min.js";
 import "popper.js/dist/umd/popper.min.js";
 import "bootstrap/dist/js/bootstrap.min.js";
 
+// import "antd/dist/antd.css";
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
