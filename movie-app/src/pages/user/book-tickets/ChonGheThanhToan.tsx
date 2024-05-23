@@ -6,6 +6,7 @@ import { DAT_GHE } from './duck/constants';
 import { ThongTinDatVe } from './duck/types';
 import _ from 'lodash';
 import Alert from './Alert';
+import Loading from './Loading';
 
 function SeatButton({ ghe }: { ghe: any }) {
     const dispatch = useDispatch(); // Sử dụng hook useDispatch ở đây
@@ -148,7 +149,8 @@ export default function ChonGheThanhToan() {
                         <p className='mt-n4'>Màn hình</p>
                     </div>
                     <div className='w-75 mx-auto text-center border mt-2 p-1'>
-                        {loading ? <div className="spinner-border"></div> : renderSeatButton(danhSachGhe)}
+                        {/* {loading ? <div className="spinner-border"></div> : renderSeatButton(danhSachGhe)} */}
+                        {loading ? <Loading /> : renderSeatButton(danhSachGhe)}
                         {/* {renderSeatButton(danhSachGhe)} */}
                     </div>
                     <div className='w-75 mx-auto d-flex mt-3'>
@@ -165,7 +167,8 @@ export default function ChonGheThanhToan() {
                     <Info thongTinPhim={thongTinPhim} danhSachGheDangChon={danhSachGheDangChon} />
                     <div className=''>
                         <button className='w-100 p-3 border bg-dark text-light' onClick={handleDatVe}>
-                            {loading ? <div className="spinner-border"></div> : 'Đặt vé'}
+                            {/* {loading ? <div className="spinner-border"></div> : 'Đặt vé'} */}
+                            Đặt vé
                         </button>
                     </div>
                 </div>

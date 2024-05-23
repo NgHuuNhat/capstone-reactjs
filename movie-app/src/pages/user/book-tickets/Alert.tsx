@@ -12,7 +12,7 @@ export default function Alert({ message, onClose }: any) {
     }, [onClose]);
 
     return (
-        <div className="alert alert-success position-fixed" role="alert" style={{ left: '50%', transform: 'translateX(-50%)' }}>
+        <div className="alert alert-success position-fixed p-3 w-25 text-center" role="alert" style={{top: '10px', left: '50%', transform: 'translateX(-50%)' }}>
             {message}
         </div>
     );
